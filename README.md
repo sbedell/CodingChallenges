@@ -5,11 +5,10 @@ My solutions for various information / cyber / network security challenges.
 - Completed all the js challenges, need to upload those still.
 
 ### Project Euler - https://projecteuler.net/
-I realize these aren't specifically security related challenges, but they are online programming challenges nontheless.
+I realize these aren't specifically security related challenges...
 
-### Matasano Crypto Challenges  - http://cryptopals.com/sets/1/
-I will NOT be posting my code on here, I will only be using this to keep track of my progress with these challenges.
-As per their rules they don't want you posting solutions online.
+### Matasano Crypto Challenges  - http://cryptopals.com/
+I am completing this in Python 3.4
 
 ### Exploit Exercises - https://exploit-exercises.com/nebula/
 - Complete: Nebula 00.
