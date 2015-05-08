@@ -14,9 +14,9 @@ def ecbDetected(ciphertext):
     ciphertext = text to check
     """
     chunkedText = splitArray(ciphertext, 16)
-    repeatedBlocks = dict()
+    repeatedBlocks = set()
     for chunk in chunkedText:
-        repeatedBlocks[chunk] = 1
+        repeatedBlocks.add(chunk)
     return len(repeatedBlocks) < len(chunkedText)
 
 with open("8.txt") as f:
