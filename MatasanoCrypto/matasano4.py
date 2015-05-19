@@ -1,14 +1,10 @@
 import binascii, string
+from cryptools import singleCharXOR
 
 # Matasano Crypto Challenges
-# Challenge 4 - Detect single-character XOR
+# Challenge 4 - Detect single-character XO
 
-def singleCharXOR(s1, c):
-    ans = str()
-    for char in binascii.unhexlify(s1):
-        ans += chr(c ^ char)
-    return ans
-
+# Reusing this to make it stricter 
 def freqAnalysis(file):
     wordFreq = dict()
     with open(file) as f:
@@ -26,7 +22,6 @@ def freqAnalysis(file):
             words.append(key.lower())
     return words
 
-wordFreq = freqAnalysis("OriginOfSpecies.txt")
 iceFreq = freqAnalysis("IceIce.txt")
 
 with open("4.txt") as file:

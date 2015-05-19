@@ -1,14 +1,9 @@
 import binascii
+from cryptools import fixedXOR
 
 # Matasano Crypto Challenges
 # Challenge 2 - Fixed XOR
 
-def fixedXOR(s1, s2):
-    ans = str()
-    for x, y in zip(binascii.unhexlify(s1), binascii.unhexlify(s2)):
-        ans += chr(x ^ y)
-    return ans
-        
 buf1     = b"1c0111001f010100061a024b53535009181c"
 buf2     = b"686974207468652062756c6c277320657965"
 expected = b"746865206b696420646f6e277420706c6179"

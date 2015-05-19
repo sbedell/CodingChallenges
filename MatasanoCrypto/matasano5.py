@@ -1,17 +1,8 @@
 import binascii
+from cryptools import repeatingXOR
 
 # Matasano Crypto Challenges
 # Challenge 5 - Implement repeating-key XOR
-
-# plaintext = byte encoded string
-# key = byte encoded string
-def repeatingXOR( plaintext, key ):
-    crypt = str()
-    iKey = 0
-    for c in plaintext:
-        crypt += chr(c ^ key[iKey])
-        iKey = (iKey + 1) % len(key)    # increase by 1, mod by keylen
-    return binascii.hexlify(crypt.encode())
 
 line1 = b"Burning 'em, if you ain't quick and nimble"
 line2 = b"I go crazy when I hear a cymbal"

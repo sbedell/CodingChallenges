@@ -1,4 +1,5 @@
-import base64, binascii
+import binascii
+from cryptools import hexToBase64
 
 # Matasano Crypto Challenges
 # Challenge 1 - Convert hex to base64
@@ -9,11 +10,10 @@ expected = b"SSdtIGtpbGxpbmcgeW91ciBicmFpbiBsaWtlIGEgcG9pc29ub3VzIG11c2hyb29t"
 # Print the original message 4 fun:
 print( binascii.unhexlify(hexstr) )
 
-# convert to bytes
-def hexToBase64(hexStr):
-    return base64.b64encode(binascii.unhexlify(hexStr))
-
 print("Answer   = ", hexToBase64(hexstr))
 print("Expected = ", expected)
 print("Correct? ", expected == hexToBase64(hexstr))
 assert(expected == hexToBase64(hexstr))
+
+# This works too, just a test
+print(binascii.b2a_base64(binascii.unhexlify(hexstr)))
