@@ -1,5 +1,4 @@
-#!/usr/bin/py
-# Head ends here
+# HackerRank string similarity challenge
 
 def stringSimilarity(a):
     answer = 0
@@ -16,8 +15,8 @@ def stringSimilarity(a):
     
     return answer
 
-""" Returns a list of all the suffixes of the string s """
 def stringSuffixes(s):
+    """ Returns a list of all the suffixes of the string s """
     suffixes = list() 
     
     for i in range(len(s)):
@@ -25,8 +24,6 @@ def stringSuffixes(s):
         
     return suffixes
 
-    
-# Tail starts here
 if __name__ == '__main__':
     t = int(input())
     for i in range(0, t):
