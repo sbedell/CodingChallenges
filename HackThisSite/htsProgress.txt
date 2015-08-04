@@ -1,0 +1,19 @@
+Completed Missions:
+
+Basic:
+1,2,3
+
+7 - Type in a semicolon after the year, then ls to list the directory. This tells you the name of the password file, which you then put into the url bar, which shows you the password for the level!
+ex: "2013; ls"
+
+8- need to do <!--#exec cmd="ls .." --> to list the parent directory, which shows the php file containing the pass. Type the password file into the url bar like in Mission 7, and the password will be given to you.
+
+JavaScript: FINISHED ALL :D
+var - password hidden in source, in a weird location
+escape - used jsfiddle to unescape the characters, giving me the pass.
+goaway.js - a hidden .js file has the password checking code, which gives the password away.
+deobfuscate - used a hex converter
+
+-=* ----------------------------------- *=-
+Exploit Exercises:
+Complete: Nebula 00,
