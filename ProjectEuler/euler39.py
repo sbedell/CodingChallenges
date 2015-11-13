@@ -1,5 +1,7 @@
 import math
 
+# This isn't finished yet, not passsing on projeceuler.net
+
 """
 	Tests if a, b, c "pass" the
 	Pythagorean Theorem
@@ -9,5 +11,6 @@ def isRightTri(a, b, c):
 	csquare = int(math.pow(c, 2))
 	return summ == csquare
 
-print isRightTri(30, 40, 50)
-print isRightTri(1, 2, 5)
+if __name__ == '__main__':
+	print(isRightTri(30, 40, 50))
+	print(isRightTri(1, 2, 5))
