@@ -2,11 +2,11 @@ import unittest
 
 from euler1 import sumOfMultiples
 from euler2 import fibSequence
-from euler3 import largestPrime
+from euler3 import largestPrime, isPrime
 from euler4 import isPalindrome, largestPalindrome
 from euler6 import sumSquareDifference
 from euler7 import findNthPrime
-from euler10 import summationOfPrimes, isPrime
+from euler10 import summationOfPrimes
 from euler13 import largeSum
 from euler16 import powerDigitSum
 from euler20 import factorialDigitSum
@@ -16,6 +16,21 @@ from euler40 import champConst
 from euler48 import selfPowers
 
 class EulerTests(unittest.TestCase):
+    # Testing "helper" functions:
+
+    def testIsPrime(self):
+        self.assertTrue(isPrime(7))
+
+    def testIsNotPrime(self):
+        self.assertFalse(isPrime(10))
+        
+    def testPalindrome(self):
+        self.assertTrue(isPalindrome('racecar'))
+
+    def testNotPalindrome(self):
+        self.assertFalse(isPalindrome('palindrome'))
+
+    # Testing Euler Problems:
     def testEuler1(self):
         self.assertEqual(sumOfMultiples(3, 5), 233168)
 
@@ -26,12 +41,6 @@ class EulerTests(unittest.TestCase):
     # SLOW
     # def testEuler3(self):
     #    self.assertEqual(largestPrime(600851475143), 6857)
-
-    def testPalindrome(self):
-        self.assertTrue(isPalindrome('racecar'))
-
-    def testNotPalindrome(self):
-        self.assertFalse(isPalindrome('palindrome'))
 
     def testEuler4(self):
         self.assertEqual(largestPalindrome(1000), 906609)
