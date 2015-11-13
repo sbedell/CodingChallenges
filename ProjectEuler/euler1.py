@@ -1,10 +1,10 @@
-multiples = []
-totalSum = 0
+def sumOfMultiples(x, y):
+        totalSum = 0
+        for i in range(1, 1000):
+                if ((i % x == 0) or (i % y == 0)):
+                        totalSum = totalSum + i
+        return totalSum
 
-for x in range(1,1000):
-        if ((x % 3 == 0) or (x % 5 == 0)):
-                totalSum = totalSum + x
-                multiples.append(x)
-
-print ( totalSum )
-print ( multiples )
+# -------------------------------------
+if __name__ == '__main__':
+        print(sumOfMultiples(3, 5))

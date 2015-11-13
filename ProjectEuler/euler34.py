@@ -8,7 +8,6 @@ def getFactorialDigs(n):
 
 n = 3
 while n > 2:
-	#print getFactorialDigs(n)
 	if n == getFactorialDigs(n):
-		print "HOLY SHIT " + str(n)
+		print("HOLY SHIT " + str(n))
 	n += 1

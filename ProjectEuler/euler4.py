@@ -2,7 +2,6 @@ def isPalindrome(n):
     return str(n) == str(n)[::-1]
 
 def largestPalindrome(n):
-    # This only goes for 3 digit numbers
     currentLargest = 0
     for x in range(300, n):
         for y in range(300, n):

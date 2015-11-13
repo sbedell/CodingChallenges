@@ -2,7 +2,7 @@ import math
 
 def isPrime(n):
         # Pretty Horrible alorgithm for huge numbers:
-	for x in range(2, int(math.sqrt(n)+1)):
+	for x in range(2, int(math.sqrt(n) + 1)):
 		if n % x == 0:
 			return False
 	return True

@@ -1,8 +1,10 @@
-totalSum = 0
+def selfPowers(n):
+        totalSum = 0
+        for i in range(1, n):
+                totalSum += int(i**i)
+        return totalSum
 
-for n in range(1, 1001): # actually 1 - 10
-	totalSum += int(n**n)
-
-print totalSum
-print "\n"
-print str(totalSum)[-10:]
+if __name__ == '__main__':
+        totalSum = selfPowers(1001)
+        # print(totalSum)
+        print(str(totalSum)[-10:])
