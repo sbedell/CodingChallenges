@@ -1,7 +1,8 @@
 # CodingChallenges
 My solutions for various general coding and information / cyber / network security challenges.
 
-## Information Security Challenges
+Information Security Challenges
+------
 ### Hack This Site - http://hackthissite.org
 - Completed all the js challenges, need to upload those still.
 
@@ -14,7 +15,8 @@ I am completing this in Python 3.4
 ### Google Gruyere - https://google-gruyere.appspot.com/
 
 ***
-## Programming Challenges
+Programming Challenges
+------
 
 ### Project Euler - https://projecteuler.net/
 
