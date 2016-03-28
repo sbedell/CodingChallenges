@@ -4,7 +4,7 @@ def triangleNum(num):
 	tri = 0
 	for i in range(1, num + 1):
 		tri += int(i)
-		#print i
+		#print(i)
 	return tri
 
 def numDivisors(num):
@@ -25,10 +25,9 @@ def numDivisors(num):
 
 greatestDivLen = 0
 for i in range(5000, 10000):
-	if i % 80 == 0: print i
+	if i % 80 == 0: print(i)
 	length = len(numDivisors(triangleNum(i)))
 	if length > greatestDivLen:
 		greatestDivLen = length
 
-print
-print greatestDivLen
+print(greatestDivLen)

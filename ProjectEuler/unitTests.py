@@ -6,8 +6,10 @@ from euler3 import largestPrime, isPrime
 from euler4 import isPalindrome, largestPalindrome
 from euler6 import sumSquareDifference
 from euler7 import findNthPrime
+from euler9 import pythagTriplet
 from euler10 import summationOfPrimes
 from euler13 import largeSum
+from euler14 import collatzChainLength
 from euler16 import powerDigitSum
 from euler20 import factorialDigitSum
 from euler30 import digitFifthPowers
@@ -30,6 +32,9 @@ class EulerTests(unittest.TestCase):
     def testNotPalindrome(self):
         self.assertFalse(isPalindrome('palindrome'))
 
+    def testCollatz(self):
+        self.assertEqual(collatzChainLength(13), 10)
+
     # Testing Euler Problems:
     def testEuler1(self):
         self.assertEqual(sumOfMultiples(3, 5), 233168)
@@ -51,6 +56,10 @@ class EulerTests(unittest.TestCase):
     # def testEuler7(self):
     #    self.assertEqual(findNthPrime(10001), 104743)
 
+    # SLOW - adds about 20 seconds
+    #def testEuler9(self):
+    #   self.assertEqual(pythagTriplet(1000), 31875000)
+
     # SLOW 
     # def testEuler10(self):
     #   self.assertEqual(summationOfPrimes(2000001), 142913828922)
@@ -61,6 +70,9 @@ class EulerTests(unittest.TestCase):
     #     myLargeSum = largeSum(file_in)
     #
     #     self.assertEqual(myLargeSum[0:10], 5537376230)
+
+    #def testEuler14(self):
+    #    self.assertEqual(0, 837799)
 
     def testEuler16(self):
         self.assertEqual(powerDigitSum(1000), 1366)
