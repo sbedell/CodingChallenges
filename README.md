@@ -10,7 +10,7 @@ Information Security Challenges
 
 ### Matasano Crypto Challenges
 - http://cryptopals.com/
-I am completing this in Python 3.4
+- I am completing this in Python 3.4
 
 ### Exploit Exercises
 - https://exploit-exercises.com/nebula/
