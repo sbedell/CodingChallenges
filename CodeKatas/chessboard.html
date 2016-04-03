@@ -27,9 +27,13 @@
             width: 15px;
         }
 
-        /*table > tr > td:nth-child(odd) {
-            color: black;
-        }*/
+		.blackSquare {
+			background-color: black;
+		}
+
+		.redSquare {
+			background-color: #ff1a1a; /* light red */
+		}
     </style>
 </head>
 <!-- <body onload=""> -->
@@ -43,7 +47,7 @@
         <label>Enter King coordinates <input id="kingCoords" type="text" placeholder="King coordinates"></label><br />
 		<button type="button" onclick="kingInCheck();">King in Check?</button>
     </div>
-    <p id="outputText"></p>
 	<table id="chessboard"></table>
+	<p id="outputText"></p>
 </body>
 </html>

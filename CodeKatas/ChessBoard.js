@@ -22,27 +22,33 @@ class ChessBoard {
     }
 }
 
-var rows;
-var cols;
+let rows;
+let cols;
+let board;
+let queenPos;
+let kingPos;
 function generateBoard() {
     clearBoard();
     rows = document.getElementById("rows").value;
     cols = document.getElementById("columns").value;
     if (rows <= 0 || cols <= 0) {
         alert("Cannot have 0 or less columns or rows. Exiting");
+        clearBoard();
         return;
     }
-    var board = new ChessBoard(rows, cols);
+    board = new ChessBoard(rows, cols);
 
-    var boardElement = document.getElementById("chessboard");
-    for (let i = 0; i < rows; i++) {
+    let boardElement = document.getElementById("chessboard");
+    for (let x = 0; x < rows; x++) {
         let row = boardElement.insertRow();
-        row.id = "row" + i;
-        for (let x = 0; x < cols; x++) {
+        // row.id = "row" + i;
+        for (let y = 0; y < cols; y++) {
             let newCell = row.insertCell();
-            //newCell.innerHTML = "fucksalt";
-            // id is like col1row3
-            newCell.id = `col${x}row${i}`;
+            newCell.id = `col${y}row${x}`;
+            // if odd cell, color it black
+            if ((x + y + 1) % 2 == 0) {
+                newCell.className = 'blackSquare';
+            }
         }
     }
 }
@@ -52,22 +58,52 @@ function clearBoard() {
     document.getElementById("outputText").innerHTML = "";
 }
 
-function kingInCheck() {
+// Draws the king and queen on the board
+function drawKingAndQueen() {
     let king = document.getElementById("kingCoords").value.split(",");
     let queen = document.getElementById("queenCoords").value.split(",");
+
     let kingCol = parseInt(king[0].trim()) - 1;
     let kingRow = parseInt(king[1].trim()) - 1;
-    if (kingCol >= cols) {
-        alert("off the board!")
+    // Validation Check
+    if (kingCol >= cols || kingRow >= rows) {
+        alert("King is off the board!");
         return;
     }
-    let kingId = `col${kingCol}row${kingRow}`;
+
     let queenCol = parseInt(queen[0].trim()) - 1;
     let queenRow = parseInt(queen[1].trim()) - 1;
-    let queenId = `col${queenCol}row${queenRow}`;
-    document.getElementById(kingId).innerHTML = "K";
-    document.getElementById(queenId).innerHTML = "Q";
-    // document.getElementById("outputText").innerHTML = "King is maybe in check";
+    // Validation check
+    if (queenCol >= cols || queenRow >= rows) {
+        alert("Queen is off the board!");
+        return;
+    }
+
+    let queenSquare = document.getElementById(`col${queenCol}row${queenRow}`);
+    let kingSquare = document.getElementById(`col${kingCol}row${kingRow}`);
+    kingSquare.innerHTML = "K";
+    queenSquare.innerHTML = "Q";
+    if (kingSquare.className == 'blackSquare') {
+        kingSquare.style.color = 'white';
+    }
+    if (queenSquare.className == 'blackSquare') {
+        queenSquare.style.color = 'white';
+    }
+
+    // set global variables
+    queenPos = [queenCol, queenRow];
+    kingPos = [kingCol, kingRow];
+}
+// and checks if the king is in check from the queen
+function kingInCheck() {
+    drawKingAndQueen();
+
+    // using global variables
+    if (board.isKingThreatened(kingPos, queenPos)) {
+        document.getElementById("outputText").innerHTML = "King is in check!";
+    } else {
+        document.getElementById("outputText").innerHTML = "King is NOT in check.";
+    }
 }
 
 // let myBoard = new ChessBoard(10, 10);
