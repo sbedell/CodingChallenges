@@ -13,12 +13,15 @@
         <!-- <label>Enter Number of columns <input id="columns" type="text" placeholder="Enter Number of Columns"></label><br />
         <label>Enter Number of rows <input id="rows" type="text" placeholder="Enter Number of Rows"></label><br /> -->
 		<input id="columns" type="text" placeholder="Enter # of Columns">
-		<input id="rows" type="text" placeholder="Enter # of Rows" /><br />
-        <button type="button" onclick="generateBoard();">Generate Board</button>
-        <button type="button" onclick="clearBoard();">Clear Board</button><br />
+		<input id="rows" type="text" placeholder="Enter # of Rows" />
+        <button type="button" onclick="generateBoard();">Generate Board</button><br />
+        
 		<label>Enter Queen coordinates <input id="queenCoords" type="text" placeholder="Queen coordinates"></label><br />
         <label>Enter King coordinates <input id="kingCoords" type="text" placeholder="King coordinates"></label><br />
-		<button type="button" onclick="kingInCheck();">King in Check?</button>
+		
+        <button type="button" onclick="kingInCheck();">King in Check?</button>
+        <button type="button" onclick="clearPieces();">Clear Pieces</button>
+        <button type="button" onclick="resetBoard();">Reset Board</button>
     </div>
 	<table id="chessboard"></table>
 	<p id="outputText"></p>

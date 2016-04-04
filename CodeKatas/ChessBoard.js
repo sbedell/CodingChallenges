@@ -1,7 +1,7 @@
 /*
     TODO:
     1. fix the class - add more methods and properties
-    2. make a clear board function which clears pieces off the board
+    2. make a clear pieces function which clears pieces off the board
 */
 class ChessBoard {
     constructor(rows, columns) {
@@ -32,8 +32,6 @@ class ChessBoard {
 let rows;
 let cols;
 let board;
-let queenPos;
-let kingPos;
 function generateBoard() {
     clearBoard();
     rows = document.getElementById("rows").value;
@@ -60,9 +58,23 @@ function generateBoard() {
     }
 }
 
+function resetBoard() {
+    if (window.confirm("Are you sure you want to reset the board?")) {
+        clearBoard();
+    }
+}
+
 function clearBoard() {
     document.getElementById("chessboard").innerHTML = "";
     document.getElementById("outputText").innerHTML = "";
+}
+
+function clearPieces() {
+    for (let x = 0; x < board.columns; x++) {
+        for (let y = 0; y < board.rows; y++) {
+            document.getElementById(`col${x}row${y}`).innerHTML = "";
+        }
+    }
 }
 
 // Draws the king and queen on the board
@@ -85,6 +97,11 @@ function drawKingAndQueen() {
         alert("Queen is off the board!");
         return;
     }
+    
+    if ((queenCol == kingCol) && (queenRow == kingRow)) {
+        alert("Queen and King cannot be on the same square");
+        return;
+    }
 
     let queenSquare = document.getElementById(`col${queenCol}row${queenRow}`);
     let kingSquare = document.getElementById(`col${kingCol}row${kingRow}`);
@@ -97,16 +114,16 @@ function drawKingAndQueen() {
         queenSquare.style.color = 'white';
     }
 
-    // set global variables
-    queenPos = [queenCol, queenRow];
-    kingPos = [kingCol, kingRow];
+    // set class variables
+    board.queenPos = [queenCol, queenRow];
+    board.kingPos = [kingCol, kingRow];
 }
 // and checks if the king is in check from the queen
 function kingInCheck() {
     drawKingAndQueen();
 
     // using global variables
-    if (board.isKingThreatened(kingPos, queenPos)) {
+    if (board.isKingThreatened(board.kingPos, board.queenPos)) {
         document.getElementById("outputText").innerHTML = "King is in check!";
     } else {
         document.getElementById("outputText").innerHTML = "King is NOT in check.";
