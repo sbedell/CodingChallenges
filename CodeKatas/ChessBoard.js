@@ -1,7 +1,14 @@
+/*
+    TODO:
+    1. fix the class - add more methods and properties
+    2. make a clear board function which clears pieces off the board
+*/
 class ChessBoard {
     constructor(rows, columns) {
         this.rows = rows;
         this.columns = columns;
+        this.queenPos = [];
+        this.kingPos = [];
     }
 
     // KingPos and QueenPos are both arrays of length 2,
@@ -32,7 +39,7 @@ function generateBoard() {
     rows = document.getElementById("rows").value;
     cols = document.getElementById("columns").value;
     if (rows <= 0 || cols <= 0) {
-        alert("Cannot have 0 or less columns or rows. Exiting");
+        alert("Cannot have 0 or less columns or rows!");
         clearBoard();
         return;
     }
