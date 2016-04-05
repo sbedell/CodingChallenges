@@ -71,8 +71,10 @@ function clearPieces() {
     document.getElementById("outputText").innerHTML = "";
 }
 
-// Draws the king and queen on the board
-function drawKingAndQueen() {
+// and checks if the king is in check from the queen
+function kingInCheck() {
+    clearPieces();
+
     let kingCoords = document.getElementById("kingCoords").value;
     let queenCoords = document.getElementById("queenCoords").value;
     if (kingCoords.indexOf(",") == -1 || queenCoords.indexOf(",") == -1) {
@@ -113,17 +115,12 @@ function drawKingAndQueen() {
     // set class variables
     board.queenPos = [queenCol, queenRow];
     board.kingPos = [kingCol, kingRow];
-}
-// and checks if the king is in check from the queen
-function kingInCheck() {
-    clearPieces();
-    drawKingAndQueen();
 
     // using global variables
     if (board.isKingThreatened(board.kingPos, board.queenPos)) {
-        document.getElementById("outputText").innerHTML = "King is in check!";
+        document.getElementById("outputText").innerHTML = "<strong>King is in check!</strong>";
     } else {
-        document.getElementById("outputText").innerHTML = "King is NOT in check.";
+        document.getElementById("outputText").innerHTML = "King is <strong>NOT</strong> in check.";
     }
 }
 
