@@ -1,8 +1,3 @@
-/*
-    TODO:
-    1. fix the class - add more methods and properties
-    2. make a clear pieces function which clears pieces off the board
-*/
 class ChessBoard {
     constructor(rows, columns) {
         this.rows = rows;
@@ -29,13 +24,11 @@ class ChessBoard {
     }
 }
 
-let rows;
-let cols;
 let board;
 function generateBoard() {
     clearBoard();
-    rows = document.getElementById("rows").value;
-    cols = document.getElementById("columns").value;
+    let rows = document.getElementById("rows").value;
+    let cols = document.getElementById("columns").value;
     if (rows <= 0 || cols <= 0) {
         alert("Cannot have 0 or less columns or rows!");
         clearBoard();
@@ -70,34 +63,37 @@ function clearBoard() {
 }
 
 function clearPieces() {
-    for (let x = 0; x < board.columns; x++) {
-        for (let y = 0; y < board.rows; y++) {
-            document.getElementById(`col${x}row${y}`).innerHTML = "";
-        }
+    let tds = document.getElementsByTagName("td");
+    //console.dir(tds);
+    for (let x = 0; x < tds.length; x++) {
+        tds[x].innerText = '';
     }
+    document.getElementById("outputText").innerHTML = "";
 }
 
 // Draws the king and queen on the board
 function drawKingAndQueen() {
-    let king = document.getElementById("kingCoords").value.split(",");
-    let queen = document.getElementById("queenCoords").value.split(",");
+    let kingCoords = document.getElementById("kingCoords").value;
+    let queenCoords = document.getElementById("queenCoords").value;
+    if (kingCoords.indexOf(",") == -1 || queenCoords.indexOf(",") == -1) {
+        alert("Coordinates need to be comma separated values");
+        return;
+    }
 
-    let kingCol = parseInt(king[0].trim()) - 1;
-    let kingRow = parseInt(king[1].trim()) - 1;
-    // Validation Check
-    if (kingCol >= cols || kingRow >= rows) {
+    let kingCol = parseInt(kingCoords.split(",")[0].trim()) - 1;
+    let kingRow = parseInt(kingCoords.split(",")[1].trim()) - 1;
+    if (kingCol >= board.columns || kingRow >= board.rows) {
         alert("King is off the board!");
         return;
     }
 
-    let queenCol = parseInt(queen[0].trim()) - 1;
-    let queenRow = parseInt(queen[1].trim()) - 1;
-    // Validation check
-    if (queenCol >= cols || queenRow >= rows) {
+    let queenCol = parseInt(queenCoords.split(",")[0].trim()) - 1;
+    let queenRow = parseInt(queenCoords.split(",")[1].trim()) - 1;
+    if (queenCol >= board.columns || queenRow >= board.rows) {
         alert("Queen is off the board!");
         return;
     }
-    
+
     if ((queenCol == kingCol) && (queenRow == kingRow)) {
         alert("Queen and King cannot be on the same square");
         return;
@@ -120,6 +116,7 @@ function drawKingAndQueen() {
 }
 // and checks if the king is in check from the queen
 function kingInCheck() {
+    clearPieces();
     drawKingAndQueen();
 
     // using global variables
@@ -129,6 +126,8 @@ function kingInCheck() {
         document.getElementById("outputText").innerHTML = "King is NOT in check.";
     }
 }
+
+// Generic Usage examples/tests:
 
 // let myBoard = new ChessBoard(10, 10);
 // console.log(myBoard.isKingThreatened([1, 2], [2, 3]));

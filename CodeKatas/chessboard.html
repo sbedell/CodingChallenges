@@ -3,22 +3,18 @@
 <head>
 	<title>Chessboard</title>
     <meta charset="UTF-8">
-    <!-- <meta name="viewport" content="initial-scale=1.0, user-scalable=no" /> -->
 	<script type="text/javascript" src="chessboard.js"></script>
 	<link rel="stylesheet" type="text/css" href="chessboard.css" />
 </head>
-<!-- <body onload=""> -->
 <body>
     <div id="inputSection">
-        <!-- <label>Enter Number of columns <input id="columns" type="text" placeholder="Enter Number of Columns"></label><br />
-        <label>Enter Number of rows <input id="rows" type="text" placeholder="Enter Number of Rows"></label><br /> -->
 		<input id="columns" type="text" placeholder="Enter # of Columns">
 		<input id="rows" type="text" placeholder="Enter # of Rows" />
         <button type="button" onclick="generateBoard();">Generate Board</button><br />
-        
-		<label>Enter Queen coordinates <input id="queenCoords" type="text" placeholder="Queen coordinates"></label><br />
-        <label>Enter King coordinates <input id="kingCoords" type="text" placeholder="King coordinates"></label><br />
-		
+
+		<label>Enter Queen coordinates (comma separated) <input id="queenCoords" type="text" placeholder="Queen coordinates"></label><br />
+        <label>Enter King coordinates (comma separated) <input id="kingCoords" type="text" placeholder="King coordinates"></label><br />
+
         <button type="button" onclick="kingInCheck();">King in Check?</button>
         <button type="button" onclick="clearPieces();">Clear Pieces</button>
         <button type="button" onclick="resetBoard();">Reset Board</button>
