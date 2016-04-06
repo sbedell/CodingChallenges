@@ -25,9 +25,11 @@ def checkAnagram(string1, string2)
 end
 
 # Testing
-puts 'Testing notAnagram and test'
-puts checkAnagram('notAnagram', 'test')
-puts checkAnagram('test', 'seTT')
-puts checkAnagram('William Shakespeare', 'I am a weakish speller')
-puts checkAnagram('anagram', 'a nag ram')
-puts checkAnagram('Time and tide wait for no man.', 'Notified madman into water.')
+puts "\nTesting notAnagram and test => " + checkAnagram("notAnagram", "test").to_s
+puts "test and seTT => \t\t" + checkAnagram("test", "seTT").to_s
+puts "William Shakespeare and I am a weakish speller => " +
+    checkAnagram("William Shakespeare", "I am a weakish speller").to_s
+puts "Anagram and a nag ram => " + checkAnagram("anagram", "a nag ram").to_s
+puts "Time and tide wait for no man. and Notified madman into water. => \t" +
+    checkAnagram("Time and tide wait for no man.", "Notified madman into water.").to_s
+puts "Tom Marvolo Riddle and I am Lord Voldemort => \t" + checkAnagram("Tom Marvolo Riddle", "I am Lord Voldemort").to_s
