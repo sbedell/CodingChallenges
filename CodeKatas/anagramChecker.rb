@@ -1,9 +1,9 @@
 require "benchmark"
 
 def checkAnagram(string1, string2)
-    # Strip spaces and change to lowercase
-    str1 = string1.delete(' ').downcase
-    str2 = string2.delete(' ').downcase
+    # regex is finding anything that's not a-z 0-9 and stripping it
+    str1 = string1.downcase.gsub(/[^a-z0-9]/i, '')
+    str2 = string2.downcase.gsub(/[^a-z0-9]/i, '')
 
     if str1.length != str2.length
         return false
@@ -27,8 +27,9 @@ def checkAnagram(string1, string2)
 end
 
 def checkAnagram2(string1, string2)
-    str1 = string1.delete(' ').downcase
-    str2 = string2.delete(' ').downcase
+    # regex is finding anything that's not a-z 0-9 and stripping it
+    str1 = string1.downcase.gsub(/[^a-z0-9]/i, '')
+    str2 = string2.downcase.gsub(/[^a-z0-9]/i, '')
 
     # For "perfect" anagrams
     if str1.length != str2.length
@@ -77,11 +78,11 @@ puts "William Shakespeare and I am a weakish speller => " +
 puts "Anagram and a nag ram => " + checkAnagram("anagram", "a nag ram").to_s
 puts "Time and tide wait for no man. and Notified madman into water. => \t" +
     checkAnagram("Time and tide wait for no man.", "Notified madman into water.").to_s
-puts "Tom Marvolo Riddle and I am Lord Voldemort => \t" + checkAnagram("Tom Marvolo Riddle", "I am Lord Voldemort").to_s
+puts "Tom Marvolo Riddle and I am Lord Voldemort => \t" + checkAnagram("Tom Marvolo Riddle", "I am Lord Voldemort").to_s + "\n\n"
 
-puts checkAnagram2("Tom Marvolo Riddle", "I am Lord Voldemort")
-puts Benchmark.measure { checkAnagram("Tom Marvolo Riddle", "I am Lord Voldemort") }
-puts Benchmark.measure { checkAnagram2("Tom Marvolo Riddle", "I am Lord Voldemort") }
+# puts checkAnagram2("Tom Marvolo Riddle", "I am Lord Voldemort")
+# puts Benchmark.measure { checkAnagram("Tom Marvolo Riddle", "I am Lord Voldemort") }
+# puts Benchmark.measure { checkAnagram2("Tom Marvolo Riddle", "I am Lord Voldemort") }
 
 time1 = Time.now
 puts checkAnagram('Anagram', 'A nag ram')
@@ -89,4 +90,25 @@ puts "Time elapsed = " + (Time.now - time1).to_s
 
 time2 = Time.now
 puts checkAnagram2('Anagram', 'A nag ram')
+puts "Time elapsed = " + (Time.now - time2).to_s + "\n\n"
+
+puts Benchmark.measure { checkAnagram('It was a dark and stormy night; the rain fell in torrents, except at
+occasional intervals, when it was checked by a violent gust of wind
+which swept up the streets (for it is in London that our scene lies),
+rattling along the housetops, and fiercely agitating the scanty flame
+of the lamps that struggled against the darkness.', 'Tut-tut! Bulwer-Lyttons known penchant for inelegant, stagnant,
+over-affected, cost-inflated prose evokes mirth a hundred years hence.
+Ah-ha! A well-known comic strip talent hatches it - a textual gag for a dog:
+(Snoopy wags his tail, sits at his typewriter, fidgets, and then
+distills a classic theme: "Its raining, theres no light")') }
+time2 = Time.now
+puts checkAnagram2('It was a dark and stormy night; the rain fell in torrents, except at
+occasional intervals, when it was checked by a violent gust of wind
+which swept up the streets (for it is in London that our scene lies),
+rattling along the housetops, and fiercely agitating the scanty flame
+of the lamps that struggled against the darkness.', 'Tut-tut! Bulwer-Lyttons known penchant for inelegant, stagnant,
+over-affected, cost-inflated prose evokes mirth a hundred years hence.
+Ah-ha! A well-known comic strip talent hatches it - a textual gag for a dog:
+(Snoopy wags his tail, sits at his typewriter, fidgets, and then
+distills a classic theme: "Its raining, theres no light")')
 puts "Time elapsed = " + (Time.now - time2).to_s
