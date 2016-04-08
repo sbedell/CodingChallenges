@@ -73,6 +73,7 @@ function clearPieces() {
 }
 
 function kingInCheck() {
+    document.getElementById("outputText").innerHTML = "";
     let kingPiece = document.getElementById("kingPiece");
     let queenPiece = document.getElementById("queenPiece");
 
@@ -95,14 +96,12 @@ function kingInCheck() {
     let kingCol = parseInt(kingSquareId.split(",")[0].trim());
     let kingRow = parseInt(kingSquareId.split(",")[1].trim());
     let kingCoords = [kingCol, kingRow];
-    console.log("kingCoords = " + kingCoords);
 
     // Calculate Queen Coordinates
     let queenSquareId = document.getElementById(queenPiece.parentElement.id).id;
     let queenCol = parseInt(queenSquareId.split(",")[0].trim());
     let queenRow = parseInt(queenSquareId.split(",")[1].trim());
     let queenCoords = [queenCol, queenRow];
-    console.log("queenCoords = " + queenCoords);
 
     if (board.isKingThreatened(kingCoords, queenCoords)) {
         document.getElementById("outputText").innerHTML = "<strong>King is in check!</strong>";
