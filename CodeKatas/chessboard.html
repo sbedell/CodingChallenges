@@ -7,19 +7,17 @@
 	<link rel="stylesheet" type="text/css" href="chessboard.css" />
 </head>
 <body>
-    <div id="inputSection">
-		<input id="columns" type="text" placeholder="Enter # of Columns">
-		<input id="rows" type="text" placeholder="Enter # of Rows" />
-        <button type="button" onclick="generateBoard();">Generate Board</button><br />
+	<input id="columns" type="text" placeholder="Enter # of Columns">
+	<input id="rows" type="text" placeholder="Enter # of Rows" />
+    <button type="button" onclick="generateBoard();">Generate Board</button><br />
 
-		<label>Enter Queen coordinates (comma separated) <input id="queenCoords" type="text" placeholder="Queen coordinates"></label><br />
-        <label>Enter King coordinates (comma separated) <input id="kingCoords" type="text" placeholder="King coordinates"></label><br />
+	<span class="pieceSquare"><span id="kingPiece" draggable="true" ondragstart="drag(event);">K</span></span>
+	<span class="pieceSquare"><span id="queenPiece" draggable="true" ondragstart="drag(event);">Q</span></span><br />
 
-        <button type="button" onclick="kingInCheck();">King in Check?</button>
-        <button type="button" onclick="clearPieces();">Clear Pieces</button>
-        <button type="button" onclick="resetBoard();">Reset Board</button>
-    </div>
+	<button type="button" onclick="kingInCheck();">King in Check?</button>
+	<span id="outputText"></span>
+
 	<table id="chessboard"></table>
-	<p id="outputText"></p>
+	<p>Drag and drop the K and Q to place the king and queen. You can re-drag them around the board as you wish. If you want to regenerate the board, please refresh the page first to reset the pieces.</p>
 </body>
 </html>

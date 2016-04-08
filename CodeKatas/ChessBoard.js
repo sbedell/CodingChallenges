@@ -14,8 +14,8 @@ class ChessBoard {
         } else if (kingPos[1] == queenPos[1]) {  // checking row
             return true;
         } else {  // check diagonals next
-            let colDiff = kingPos[0] - queenPos[0];
-            let rowDiff = kingPos[1] - queenPos[1];
+            let colDiff = Math.abs(kingPos[0] - queenPos[0]);
+            let rowDiff = Math.abs(kingPos[1] - queenPos[1]);
             if (colDiff == rowDiff) {
                 return true;
             }
@@ -39,10 +39,11 @@ function generateBoard() {
     let boardElement = document.getElementById("chessboard");
     for (let x = 0; x < rows; x++) {
         let row = boardElement.insertRow();
-        // row.id = "row" + i;
         for (let y = 0; y < cols; y++) {
             let newCell = row.insertCell();
-            newCell.id = `col${y}row${x}`;
+            newCell.id = `${y},${x}`;
+            newCell.setAttribute("ondragover", "allowDrop(event)");
+            newCell.setAttribute("ondrop", "drop(event)");
             // if odd cell, color it black
             if ((x + y + 1) % 2 == 0) {
                 newCell.className = 'blackSquare';
@@ -71,65 +72,56 @@ function clearPieces() {
     document.getElementById("outputText").innerHTML = "";
 }
 
-// and checks if the king is in check from the queen
 function kingInCheck() {
-    clearPieces();
+    let kingPiece = document.getElementById("kingPiece");
+    let queenPiece = document.getElementById("queenPiece");
 
-    let kingCoords = document.getElementById("kingCoords").value;
-    let queenCoords = document.getElementById("queenCoords").value;
-    if (kingCoords.indexOf(",") == -1 || queenCoords.indexOf(",") == -1) {
-        alert("Coordinates need to be comma separated values");
+    let piecePlaced = true;
+    if (kingPiece.parentElement.className == 'pieceSquare') {
+        alert("Please place the king on the board!");
+        piecePlaced = false;
+    }
+
+    if (queenPiece.parentElement.className == 'pieceSquare') {
+        alert("Please place the queen on the board!");
+        piecePlaced = false;
+    }
+    if (!piecePlaced) {
         return;
     }
 
-    let kingCol = parseInt(kingCoords.split(",")[0].trim()) - 1;
-    let kingRow = parseInt(kingCoords.split(",")[1].trim()) - 1;
-    if (kingCol >= board.columns || kingRow >= board.rows) {
-        alert("King is off the board!");
-        return;
-    }
+    // Calculate King Coordinates
+    let kingSquareId = document.getElementById(kingPiece.parentElement.id).id;
+    let kingCol = parseInt(kingSquareId.split(",")[0].trim());
+    let kingRow = parseInt(kingSquareId.split(",")[1].trim());
+    let kingCoords = [kingCol, kingRow];
+    console.log("kingCoords = " + kingCoords);
 
-    let queenCol = parseInt(queenCoords.split(",")[0].trim()) - 1;
-    let queenRow = parseInt(queenCoords.split(",")[1].trim()) - 1;
-    if (queenCol >= board.columns || queenRow >= board.rows) {
-        alert("Queen is off the board!");
-        return;
-    }
+    // Calculate Queen Coordinates
+    let queenSquareId = document.getElementById(queenPiece.parentElement.id).id;
+    let queenCol = parseInt(queenSquareId.split(",")[0].trim());
+    let queenRow = parseInt(queenSquareId.split(",")[1].trim());
+    let queenCoords = [queenCol, queenRow];
+    console.log("queenCoords = " + queenCoords);
 
-    if ((queenCol == kingCol) && (queenRow == kingRow)) {
-        alert("Queen and King cannot be on the same square");
-        return;
-    }
-
-    let queenSquare = document.getElementById(`col${queenCol}row${queenRow}`);
-    let kingSquare = document.getElementById(`col${kingCol}row${kingRow}`);
-    kingSquare.innerHTML = "K";
-    queenSquare.innerHTML = "Q";
-    if (kingSquare.className == 'blackSquare') {
-        kingSquare.style.color = 'white';
-    }
-    if (queenSquare.className == 'blackSquare') {
-        queenSquare.style.color = 'white';
-    }
-
-    // set class variables
-    board.queenPos = [queenCol, queenRow];
-    board.kingPos = [kingCol, kingRow];
-
-    // using global variables
-    if (board.isKingThreatened(board.kingPos, board.queenPos)) {
+    if (board.isKingThreatened(kingCoords, queenCoords)) {
         document.getElementById("outputText").innerHTML = "<strong>King is in check!</strong>";
     } else {
         document.getElementById("outputText").innerHTML = "King is <strong>NOT</strong> in check.";
     }
 }
 
-// Generic Usage examples/tests:
+// Drag n Drop Event Functions
+function allowDrop(ev) {
+    ev.preventDefault();
+}
 
-// let myBoard = new ChessBoard(10, 10);
-// console.log(myBoard.isKingThreatened([1, 2], [2, 3]));
-// console.log(myBoard.isKingThreatened([1, 3], [8, 3]));
-// console.log(myBoard.isKingThreatened([1, 1], [5, 5]));
-// console.log(myBoard.isKingThreatened([1, 1], [1, 4]));
-// console.log(myBoard.isKingThreatened([1, 1], [4, 1]));
-// console.log(myBoard.isKingThreatened([1, 1], [7, 3]));
+function drag(ev) {
+    ev.dataTransfer.setData("Text", ev.target.id);
+}
+
+function drop(ev) {
+    var data = ev.dataTransfer.getData("Text");
+    ev.target.appendChild(document.getElementById(data));
+    ev.preventDefault();
+}

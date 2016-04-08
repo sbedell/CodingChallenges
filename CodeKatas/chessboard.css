@@ -19,24 +19,23 @@ td {
     width: 20px;
 }
 
-/*
-#inputSection {
-    float: left;
+#kingPiece {
+    color: red;
 }
 
-#chessBoard {
-    float: right;
-}
-*/
-
-.whiteText {
-    color: white;
+#queenPiece {
+    color: red;
 }
 
 .blackSquare {
     background-color: black;
 }
 
-.redSquare {
-    background-color: #ff1a1a; /* light red */
+.pieceSquare {
+    font-size: 1.2em;
+    border: 1px solid black;
+    width: 30px;
+    height: 30px;
+    margin: 10px;
+    padding: 5px;
 }
