@@ -7,7 +7,7 @@ def getTempClosestToZero(filename):
     with open(filename, "r") as f:
         #Input Line 1: N, the number of temperatures to analyze, 0 ≤ N < 1,000,000
         n = int(f.readline())
-        assert n >= 0 and n < 1000000 # 0 ≤ N < 1,000,000
+        assert n >= 0 and n < 1000000
 
         #Input Line 2: The N space delimited temperatures
         # expressed as integers ranging from -273 to 5526
@@ -16,7 +16,8 @@ def getTempClosestToZero(filename):
         # Display 0 (zero) if no temperatures are provided.
         if n == 0:
             return 0
-        else:       # Otherwise, display the temperature closest to 0.
+        else:
+            # Otherwise, display the temperature closest to 0.
             assert len(numbers) == n, "number of elements must be equal to the N on line 1"
             lowestTemp = 5526
             for i in numbers:
