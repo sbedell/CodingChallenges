@@ -32,6 +32,10 @@ class TempKataTest(unittest.TestCase):
         with self.assertRaises(AssertionError):
             getTempClosestToZero("testData/badData3.txt")
 
+    def testIOError_GivenBadFile4(self):
+        with self.assertRaises(IOError):
+            getTempClosestToZero("testData/thisDoesntExist.txt")
+
 # -----------------------------------------------------------------
 if __name__ == '__main__':
     unittest.main()

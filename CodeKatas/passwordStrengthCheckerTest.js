@@ -1,32 +1,34 @@
-QUnit.test("Hello test", assert => {
-    assert.ok( 1 == "1", "Passed!" );
-    assert.ok(1 === 1);
-    assert.equal(1, "1");
-    assert.notOk( 1 === "1" , "triple equals");
-});
-
-QUnit.test("Test Square", assert => {
-    function square(x) {
-        return (x * x);
-    }
-    assert.equal(square(2), 4, "square(2) == 4" );
-});
-
-QUnit.test("Test Very Weak", assert => {
-    assert.equal(passwordStrength("123456"), "Very Weak", "123456 is very weak");
-    assert.equal(passwordStrength("123456789", "Kinda Strong", "123456789 is kinda strong"))
-});
-
-QUnit.test("Test Kinda Strong", assert => {
-    
-});
-
 // https://api.qunitjs.com/category/assert/
 // https://api.qunitjs.com/expect/
 
-// console.log(passwordStrength("123456789"));
-// console.log(passwordStrength("weak")); // Weak
-// console.log(passwordStrength("OverEightChars"));
-// console.log(passwordStrength("OverEightChars1")); // Strong
-// console.log(passwordStrength("Chars1234@#$")); // Very Strong
-// console.log(passwordStrength("#$%#$%#$%#$%#$%"));
+const VERY_WEAK = "Very Weak";
+const WEAK = "Weak";
+const STRONG = "Strong";
+const VERY_STRONG = "Very Strong";
+const KINDA_STRONG = "Kinda Strong";
+
+QUnit.module("Password Strength Tests", () => {
+    QUnit.test("Test Very Weak", assert => {
+        assert.equal(passwordStrength("123456"), VERY_WEAK, "123456 is very weak");
+        assert.equal(passwordStrength("!!!"), "Very Weak - symbols only", "!!! is a really weak password");
+    });
+
+    QUnit.test("Test Weak", assert => {
+        assert.equal(passwordStrength("weak"), WEAK, "'weak' is a weak password.");
+    });
+
+    QUnit.test("Test Strong", assert => {
+        assert.equal(passwordStrength("OverEightChars1"), STRONG, "OverEightChars1 is strong.")
+    });
+
+    QUnit.test("Test Very Strong", assert => {
+        assert.equal(passwordStrength("Chars1234@#$"), VERY_STRONG,
+            "Chars1234@#$ is very strong.");
+    });
+
+    QUnit.test("Test Kinda Strong", assert => {
+        assert.equal(passwordStrength("123456789"), KINDA_STRONG, "123456789 is kinda strong");
+        assert.equal(passwordStrength("OverEightChars"), KINDA_STRONG);
+        assert.equal(passwordStrength("#$%#$%#$%#$%#$%"), KINDA_STRONG);
+    });
+});
