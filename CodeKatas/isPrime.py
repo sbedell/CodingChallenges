@@ -10,10 +10,3 @@ def isPrime(n):
         if (n % i == 0):
             return False
     return True
-
-# Testing
-assert(isPrime(2))
-assert(isPrime(3))
-assert(isPrime(9091))
-assert(isPrime(179))
-assert(isPrime(277))

@@ -20,6 +20,18 @@ class TempKataTest(unittest.TestCase):
     def testGetTempClosestToZero_GivenFile6(self):
         self.assertEqual(0, getTempClosestToZero("testData/kataTemp6.txt"))
 
+    def testAssertionError1_GivenBadFile(self):
+        with self.assertRaises(AssertionError):
+            getTempClosestToZero("testData/kataTempBadData.txt")
+
+    def testAssertionError_GivenBadFile2(self):
+        with self.assertRaises(AssertionError):
+            getTempClosestToZero("testData/badData2.txt")
+
+    def testAssertionError_GivenBadFile3(self):
+        with self.assertRaises(AssertionError):
+            getTempClosestToZero("testData/badData3.txt")
+
 # -----------------------------------------------------------------
 if __name__ == '__main__':
     unittest.main()

@@ -30,3 +30,4 @@ Programming Challenges
 - https://en.wikipedia.org/wiki/Kata_%28programming%29
 - http://www.codekatas.org/
 - http://codekata.com/
+- For the chessboard kata, see here: https://sbedell.github.io/chessboard

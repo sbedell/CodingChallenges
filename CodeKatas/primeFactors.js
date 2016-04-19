@@ -12,7 +12,7 @@ function isPrime(n) {
             return false;
         }
     }
-        return true;
+    return true;
 }
 
 function getPrimeFactors(num) {
