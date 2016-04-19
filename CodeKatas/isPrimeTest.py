@@ -26,6 +26,9 @@ class TempKataTest(unittest.TestCase):
     def testBadLarge(self):
         self.assertFalse(isPrime(922337203685477))
 
+    def testValueError_GivenNegativeNumber(self):
+        with self.assertRaises(ValueError):
+            isPrime(-5)
 
 # -----------------------------------------------------------------
 if __name__ == '__main__':

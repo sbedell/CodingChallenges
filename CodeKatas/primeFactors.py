@@ -8,7 +8,7 @@ def getPrimeFactors(myNum):
         while myNum % i == 0:
             primeFactors.add(i)
             myNum = int(myNum / i)
-        i = i + 1
+        i += 1
     return sorted(primeFactors)
 
 # Recursive Attempt
