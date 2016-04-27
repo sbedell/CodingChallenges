@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Conways Game of Life</title>
+    <meta charset="UTF-8">
+	<!--<link rel="stylesheet" href="conwaysLife.css" />-->
+	<style>
+		canvas {
+			border: 1px solid black;
+			margin: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<input id="height" type="text" placeholder="Enter canvas height" required />
+		<input id="width" type="text" placeholder="Enter canvas width" required />
+	    <button type="button" onclick="generateCanvas();">Generate Canvas</button>
+	</div>
+	<div id="canvasSection"></div>
+	<!--<canvas id="theCanvas"></canvas>-->
+	<script src="conwaysLife.js"></script>
+</body>
+</html>
