@@ -12,13 +12,13 @@
 	</style>
 </head>
 <body>
-	<div>
-		<input id="height" type="text" placeholder="Enter canvas height" required />
-		<input id="width" type="text" placeholder="Enter canvas width" required />
-	    <button type="button" onclick="generateCanvas();">Generate Canvas</button>
-	</div>
+	<form>
+		<input id="height" type="number" min="0" placeholder="Enter canvas height" required />
+		<input id="width" type="number" min="0" placeholder="Enter canvas width" required />
+	    <button type="button" onclick="initCanvas()">Generate Canvas</button>
+		<button type="button" onclick="clearCanvas()">Clear Canvas</button>
+	</form>
 	<div id="canvasSection"></div>
-	<!--<canvas id="theCanvas"></canvas>-->
 	<script src="conwaysLife.js"></script>
 </body>
 </html>
