@@ -19,6 +19,16 @@ class Cell {
 }
 
 class Board {
+    constructor(xWidth, yHeight) {
+        
+    }
+    
+    getNeighbors(cell) {
+        
+    }
+}
+
+class StateChecker {
     constructor() {
         
     }
