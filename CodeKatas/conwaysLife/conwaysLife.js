@@ -1,14 +1,3 @@
-
-
-// 	this.setDead = function() {
-// 		this.isLive = false;
-// 	};
-
-// 	this.setLive = function() {
-// 		this.isLive = true;
-// 	};
-// }
-
 class Cell {
     constructor(id, x, y) {
         this.Id = Id || '';
@@ -18,5 +7,19 @@ class Cell {
     
     toggleState() {
         this.alive = !this.alive;
+    }
+    
+    setDead() {
+        this.alive = false;
+    }
+    
+    setAlive() {
+        this.alive = true;
+    }
+}
+
+class Board {
+    constructor() {
+        
     }
 }

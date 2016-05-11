@@ -1,2 +1,3 @@
 # Ignoring the pycache directory
 ProjectEuler/__pycache__
+*__pycache__
