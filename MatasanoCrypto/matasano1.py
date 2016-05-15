@@ -8,7 +8,7 @@ hexstr = b"49276d206b696c6c696e6720796f757220627261696e206c696b65206120706f69736
 expected = b"SSdtIGtpbGxpbmcgeW91ciBicmFpbiBsaWtlIGEgcG9pc29ub3VzIG11c2hyb29t"
 
 # Print the original message 4 fun:
-print( binascii.unhexlify(hexstr) )
+print(binascii.unhexlify(hexstr))
 
 print("Answer   = ", hexToBase64(hexstr))
 print("Expected = ", expected)
