@@ -1,16 +1,9 @@
 import binascii, base64
+from cryptools import singleCharXOR, splitArray, hammingDistance
 
 # Matasano Crypto Challenges
 # Challenge 6 - Break repeating-key XOR
-
-# 2. Hamming / Edit Distance function
-def hammingDistance(s1, s2):
-    if len(s1) != len(s2):
-        raise ValueError("String lengths are not equal")
-    
-    strSum = sum(ch1 != ch2 for ch1, ch2 in zip(s1, s2))
-    hexSum = sum(ch1 != ch2 for ch1, ch2 in zip(binascii.hexlify(s1.encode()), binascii.hexlify(s2.encode())))
-    return strSum + hexSum
+# Totally not finished yet!
 
 def singleCharXOR(s1, c):
     ans = str()
@@ -29,7 +22,7 @@ assert(hammingDistance("this is a test", "wokka wokka!!!") == 37)
 
 # 0. Unbase64'ing the text:
 ciphertext = bytearray()
-with open("6.txt") as f:
+with open("inputData/6.txt") as f:
     for line in f:
         ciphertext += base64.b64decode(line.strip())
 # print(ciphertext)
@@ -48,7 +41,7 @@ smallestKeysize = 3.0
 for KEYSIZE in range(2, 41):
     # 3. Splitting text into KEYSIZE chunks and finding normal edit distance:
     #normEditDist = float((hammingDistance(ciphertext[:KEYSIZE].decode(), ciphertext[KEYSIZE:KEYSIZE+KEYSIZE].decode())) / KEYSIZE)
-    normEditDist = float(hammingDistance(
+    # normEditDist = float(hammingDistance(
     if normEditDist < smallestKeysize:
         pass
         #print(normEditDist, ciphertext)

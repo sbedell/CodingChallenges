@@ -1,4 +1,4 @@
-from cryptools import pkcs7
+from cryptools import paddingPKCS7
 
 # Matasano Crypto Challenges
 # Challenge 9 - PKCS#7 padding
@@ -6,6 +6,6 @@ from cryptools import pkcs7
 given = b"YELLOW SUBMARINE"
 expected = b"YELLOW SUBMARINE\x04\x04\x04\x04"
 
-myAnswer = pkcs7(given, 20)
-print( myAnswer )
+myAnswer = paddingPKCS7(given, 20)
+print(myAnswer)
 assert(myAnswer == expected)
