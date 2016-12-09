@@ -17,3 +17,12 @@ function passwordStrength(pw) {
         }
     }
 }
+
+
+// console.log(passwordStrength("123456")); // Very Weak
+// console.log(passwordStrength("123456789"));
+// console.log(passwordStrength("weak")); // Weak
+// console.log(passwordStrength("OverEightChars"));
+// console.log(passwordStrength("OverEightChars1")); // Strong
+// console.log(passwordStrength("Chars1234@#$")); // Very Strong
+// console.log(passwordStrength("#$%#$%#$%#$%#$%"));
