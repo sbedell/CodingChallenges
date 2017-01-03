@@ -6,7 +6,7 @@ let hexstr = "49276d206b696c6c696e6720796f757220627261696e206c696b65206120706f69
 let expected = "SSdtIGtpbGxpbmcgeW91ciBicmFpbiBsaWtlIGEgcG9pc29ub3VzIG11c2hyb29t";
 
 // print original message for fun:
-let unhexed = new Buffer(hexstr, "hex");
+let unhexed = Buffer.from(hexstr, "hex");
 console.log("\n" + unhexed.toString() + "\n");
 
 let unhexedBase64 = unhexed.toString("base64");
