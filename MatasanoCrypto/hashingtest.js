@@ -13,7 +13,7 @@ input.on('readable', function() {
   if (data) {
     hash.update(data);
   } else {
-    console.log(`The hash of this file ${thisFilename} is:`);
+    console.log(`The hash of the file ${thisFilename} is:`);
     console.log(`${hash.digest('hex')}`);
   }
 });
