@@ -15,4 +15,5 @@ while True:
 	num = num + 1
 	#if (num % 15 == 0):print num
 
-print smallest
+if __name__ == '__main__':
+	print(smallest)

@@ -9,3 +9,6 @@ def findNthPrime(n):
                         count += 1
                 num += 1
         return num
+
+if __name__ == '__main__':
+        print(findNthPrime(100))
