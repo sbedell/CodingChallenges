@@ -53,6 +53,7 @@ class EulerTests(unittest.TestCase):
     def testEuler6(self):
         self.assertEqual(sumSquareDifference(101), 25164150)
 
+    # Failing, seems close though?
     # def testEuler7(self):
     #    self.assertEqual(findNthPrime(10001), 104743)
 

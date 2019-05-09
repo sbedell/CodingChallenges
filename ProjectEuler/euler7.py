@@ -3,7 +3,7 @@ from euler3 import isPrime
 
 def findNthPrime(n):
         count = 1
-        num = 2
+        num = 3
         while (count <= n):
                 if isPrime(num):
                         count += 1

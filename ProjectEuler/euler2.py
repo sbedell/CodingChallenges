@@ -20,7 +20,7 @@ def fibSequence(n):
 
 if __name__ == '__main__':
     print(isEven(4))
-    print(isEven(6))
+    print(isEven(7))
     print(fibonacci(10))
     print(fibSequence(4000000))
     
