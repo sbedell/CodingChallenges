@@ -1,7 +1,7 @@
 # CORRECT - Takes nearly 3 minutes to run.
 
 smallest = 0	# 2520
-num = 100000	# start high, tested thru 10 mil and didn't find shit
+num = 100000	# start high, tested thru 10 mil and didn't find anything
 
 while True:
 	flag = 1
