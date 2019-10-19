@@ -48,7 +48,7 @@ for KEYSIZE in range(2, 41):
         smallestKeysize = normEditDist
 print (smallestKeysize)
 
-""" OLD SHIT
+""" OLD CODE
 for KEYSIZE in range(2, 41):
     normEditDist = float((hammingDistance(ciphertext[:KEYSIZE].decode(), ciphertext[KEYSIZE:KEYSIZE+KEYSIZE].decode())) / KEYSIZE)
     if normEditDist == 2.0:

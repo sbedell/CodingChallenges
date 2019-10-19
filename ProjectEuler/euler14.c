@@ -5,7 +5,7 @@ int reduce(int n) {
 	int i;
 	for (i = 0; n != 1; i++){
 		if (n < 0 ){
-			printf("ohshitwhatareyoudoing.jpg\n");
+			printf("ohsnapwhatareyoudoing.jpg\n");
 			break;
 		}
 		if ((n % 2) == 0) {

@@ -5,7 +5,7 @@ def summationOfPrimes(n):
         totalSum = 0
         for i in range(2, n):
                 if isPrime(i):
-                        totalSum += int(i)
+                    totalSum += int(i)
         return totalSum
 
 if __name__ == '__main__':
